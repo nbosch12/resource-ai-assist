@@ -1,0 +1,40 @@
+:host{
+    display: block;
+}
+.assistant-message-entry-container{
+    display: flex;
+    justify-content: flex-start;
+   
+}
+.assistant-message-entry-content{
+    width:50% ;
+    padding: 10px;
+    border-radius: 10Px;
+    background-color: #74777f;
+    color:white;
+    text-align: left;
+}
+
+.assistant-reaction-button-container
+{
+    display: flex;
+    justify-content: flex-end;
+    gap:10px;
+    padding:10px
+}
+
+.thinking-animation {
+    opacity: 0.7;
+    animation: pulseAnimation 1.5s infinite ease-in-out;
+}
+@keyframes pulseAnimation {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,28 @@
+ 
+ <div class="skills-bar-container" style="width: 150%;">
+     <button class="close-btn" (click)="close()">
+    &times;
+  </button>
+      <h2>Skills Overview</h2>
+      <table class="skills-table">
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Level</th>
+            <th>Proficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let skill of skills">
+            <td>{{ skill.name }}</td>
+            <td>{{ skill.level}}</td>
+            <td>
+              <div class="bar-bg">
+                <div class="bar-fill" [style.width.%]="getPercent(skill.level)" [style.background]="skill.color"></div>
+              </div>
+              <span class="percent-label">{{ getPercent(skill.level) }}%</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

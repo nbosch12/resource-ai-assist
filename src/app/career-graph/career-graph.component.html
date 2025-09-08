@@ -1,0 +1,41 @@
+ <div class="career-graph-container" style="height: 103%;">
+  <button class="close-btn" (click)="close()">
+    &times;
+  </button>
+      <h2>Career Progression by Year</h2>
+      <svg width="500" height="320" viewBox="0 0 500 320">
+        <g *ngFor="let skill of skills; let s = index">
+          <polyline
+            [attr.points]="getSkillPoints(skill.data, s)"
+            [attr.stroke]="skill.color"
+            stroke-width="3"
+            fill="none"
+            [attr.opacity]="0.8"
+          />
+          <g *ngFor="let year of years; let i = index">
+            <circle
+              [attr.cx]="getX(i)"
+              [attr.cy]="getY(skill.data[i])"
+              r="5"
+              [attr.fill]="skill.color"
+              [attr.opacity]="0.9"
+            />
+          </g>
+        </g>
+        <!-- X axis labels -->
+        <g *ngFor="let year of years; let i = index">
+          <text [attr.x]="getX(i)" y="300" text-anchor="middle" font-size="13" fill="#1976d2">{{ year }}</text>
+        </g>
+        <!-- Y axis labels -->
+        <g *ngFor="let y of yLabels">
+          <text x="30" [attr.y]="getY(y) + 4" text-anchor="end" font-size="13" fill="#888">{{ y }}</text>
+          <line x1="40" [attr.y1]="getY(y)" x2="480" [attr.y2]="getY(y)" stroke="#e0e0e0" stroke-dasharray="4 2" />
+        </g>
+      </svg>
+      <div class="legend">
+        <div *ngFor="let skill of skills">
+          <span class="legend-color" [style.background]="skill.color"></span>
+          <span>{{ skill.name }}</span>
+        </div>
+      </div>
+    </div>
