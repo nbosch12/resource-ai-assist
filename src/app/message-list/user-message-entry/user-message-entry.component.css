@@ -13,6 +13,16 @@
     background-color: #a8ada5;
     color:white;
     text-align: right;
+    display: inline;
+    white-space: pre-wrap;
+}
+.user-message-entry-content p{
+    white-space: normal;
+    text-align: left;
+    margin: 0 ;
+    text-indent: 0;
+    line-height: 1.4;
+    word-break: break-word;
 }
 .user-reaction-button-container
 {

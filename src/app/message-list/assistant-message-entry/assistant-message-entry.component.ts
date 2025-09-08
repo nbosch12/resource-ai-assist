@@ -1,11 +1,12 @@
 import { Component, effect, input, signal, WritableSignal } from '@angular/core';
 import { MessageEntry } from '../../@models/message-entry';
 import { AssistantReactionButtonComponent } from './assistant-reaction-button/assistant-reaction-button.component';
-
+import { CommonModule } from '@angular/common';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-assistant-message-entry',
-  imports: [AssistantReactionButtonComponent],
+  imports: [AssistantReactionButtonComponent,CommonModule],
   templateUrl: './assistant-message-entry.component.html',
   styleUrl: './assistant-message-entry.component.css'
 })
@@ -24,21 +25,36 @@ private readonly THINKING_DURATION_MS = 3000 //ms before showing the thinking in
 constructor() {
 effect(() => {
 const currentMessage = this.messageEntry();
-this.clearAllAnimation();
-if(currentMessage?.content){
-  this.isThinking.set(true);
-  this.displayedContent.set(this.THINKING_TEXT);
-  this.animationTimeOutId = setTimeout(() => {
-    this.isThinking.set(false);
-     this.displayedContent.set('');
-     if(currentMessage?.content){
-    this.typeMessageReadOnly(currentMessage.content);
-  }
-}, this.THINKING_DURATION_MS);
-}else{
-  this.displayedContent.set('');
-  this.isThinking.set(false);
-}
+    this.clearAllAnimation();
+    if (currentMessage?.content) {
+      // If it's a table, set the HTML directly and skip animation
+      if (currentMessage.isTable) {
+        this.isThinking.set(true);
+        this.displayedContent.set(this.THINKING_TEXT);
+         this.animationTimeOutId = setTimeout(() => {
+          this.isThinking.set(false);
+          const parsed = marked.parse(currentMessage.content);
+         if (parsed instanceof Promise) {
+          parsed.then(html => this.displayedContent.set(html));
+        } else {
+            this.displayedContent.set(parsed);
+            }
+        }, this.THINKING_DURATION_MS);
+      } else {
+        this.isThinking.set(true);
+        this.displayedContent.set(this.THINKING_TEXT);
+        this.animationTimeOutId = setTimeout(() => {
+          this.isThinking.set(false);
+          this.displayedContent.set('');
+          if (currentMessage?.content) {
+            this.typeMessageReadOnly(currentMessage.content);
+          }
+        }, this.THINKING_DURATION_MS);
+      }
+    } else {
+      this.displayedContent.set('');
+      this.isThinking.set(false);
+    }
 });
 }
 
@@ -82,4 +98,6 @@ private clearAllAnimation():void{
     this.animationTimeOutId = null;
   }
 }
+
+
 }

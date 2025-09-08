@@ -1,21 +1,50 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { map, Observable, of } from "rxjs";
 import { MessageEntry } from "../@models/message-entry";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'})
 export class ChatBoardService {
+ constructor(private http: HttpClient) {}
+ public SendMessage(message: MessageEntry): Observable<MessageEntry> {
+  const content= message.content.trim();
+    const apiUrl = `https://resource-ai-assist-be.cfapps.eu10-004.hana.ondemand.com/api/ask?q=${encodeURIComponent(message.content)}`;
+    const wantsTable = /table|tabular|as a table/i.test(message.content);
+    if (wantsTable) {
+     return this.http.get<{ answer: string }>(apiUrl).pipe(
+    map(res => {
+      // Check if the answer contains a table (very basic check for <table>)
+     // const isTable = res.answer.includes('<table');
 
-public SendMessage(message: MessageEntry): Observable<MessageEntry> {
-  return of({
-      id: crypto.randomUUID(), 
-      content:this.GenerateRandomMessage().content,
-      role: 'assistant',
-      createdAt: new Date()
-  });
-}
+     const content = res.answer.replace(/\[Chunk\s*#?\d+\]/g, '').trim();
+      return {
+        id: crypto.randomUUID(),
+        content: content,
+        role: 'assistant',
+        createdAt: new Date(),
+        isTable:true
+      } as any; // or extend MessageEntry to include isTable if needed
+    })
+  );
+    }else{
+      return this.http.get<{ answer: string }>(apiUrl).pipe(
+      map(res => ({
+        id: crypto.randomUUID(),
+        content: res.answer.replace(/\[Chunk[^\]]*\]/g, '').replace(/\s+/g, ' ').trim(), // assuming API returns { message: "..." }
+        role: 'assistant',
+        createdAt: new Date(),
+        isTable:false
+      }))
+    );
+    }
+
+   
+  }
+
 
 public GenerateRandomMessage(): MessageEntry {
+
   const messages = [
     "How can I assist you today?",
     "What would you like to know?",

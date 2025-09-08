@@ -1,8 +1,13 @@
 <div class="assistant-message-entry-container">
-    <div class="assistant-message-entry-content">
-        <p [class.thinking-animation]="isThinking()">{{displayedContent()}}</p>
-    </div>
+  <div class="assistant-message-entry-content">
+    <ng-container *ngIf="messageEntry()?.isTable; else plainText">
+      <div class="assistant-html-content" [innerHTML]="displayedContent()"></div>
+    </ng-container>
+    <ng-template #plainText>
+      <p [class.thinking-animation]="isThinking()">{{displayedContent()}}</p>
+    </ng-template>
+  </div>
 </div>
 <div class="assistant-message-entry-container">
-    <app-assistant-reaction-button [message]="displayedContent()" ></app-assistant-reaction-button>
+  <app-assistant-reaction-button [message]="displayedContent()"></app-assistant-reaction-button>
 </div>

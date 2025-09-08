@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { UploadService } from '../../../@service/upload-service';
 
 @Component({
   selector: 'app-assistant-reaction-button',
@@ -12,7 +13,7 @@ export class AssistantReactionButtonComponent {
  @Input() message: string = '';
  upActive = false;
   downActive = false;
-
+constructor(private uploadService:UploadService) {}
   thumbsUp() {
     this.upActive = true;
     this.downActive = false;
@@ -26,8 +27,8 @@ export class AssistantReactionButtonComponent {
   copyAll() {
     if (this.message && navigator.clipboard) {
     navigator.clipboard.writeText(this.message)
-      .then(() => alert('Message copied!'))
-      .catch(() => alert('Failed to copy!'));
+      .then(() => this.uploadService.Toast.fire('copy successfully.', '', 'success'))
+      .catch(() => this.uploadService.Toast.fire('copy failed.', '', 'error'));
   } else {
     alert('Clipboard not supported or message is empty.');
   }
