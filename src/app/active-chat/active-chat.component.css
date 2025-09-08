@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+}
+.active-chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+app-message-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: block;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+
+}
+
+&::-webkit-scrollbar {
+    display:none ;
+}
+app-chat-input {
+    flex-shrink: 0;
+    width: 100%;
+}
