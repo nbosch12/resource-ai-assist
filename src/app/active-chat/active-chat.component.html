@@ -1,0 +1,5 @@
+<div class="active-chat-container">
+<app-message-list [messageEntries]="messageEntries()"  ></app-message-list>
+<app-chat-input (message)="updateMessageEntries($event)"></app-chat-input>
+</div>
+

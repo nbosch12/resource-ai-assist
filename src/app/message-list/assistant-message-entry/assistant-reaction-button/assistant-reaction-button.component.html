@@ -1,0 +1,13 @@
+<div class="assitant-reaction-button">
+ <button mat-icon-button  (click)="thumbsUp()">
+  <mat-icon [class.active]="upActive">thumb_up</mat-icon>
+ </button>
+ <button mat-icon-button (click)="thumbsDown()">
+  <mat-icon [class.active]="downActive">thumb_down</mat-icon>
+ </button>
+<button mat-icon-button (click)="copyAll()">
+  <mat-icon>copy_all</mat-icon>
+ </button>
+
+
+</div>

@@ -1,0 +1,12 @@
+
+<diV class="message-list-scroll-container" #scrollContainer>
+<div class="message-list-container">
+@for (messageEntry of messageEntries(); track messageEntry.id) {
+    @if(messageEntry.role === 'user') {
+        <app-user-message-entry [messageEntry]="messageEntry"></app-user-message-entry>
+    }@else {
+       <app-assistant-message-entry [messageEntry]="messageEntry"></app-assistant-message-entry>
+    }    
+}
+</div>
+</diV>
