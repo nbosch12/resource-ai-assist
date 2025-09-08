@@ -1,0 +1,23 @@
+:host
+{
+    display: none;
+}
+.message-list-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.message-list-scroll-container
+{
+    height: 100%; /* Set a fixed height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+}
+  &::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for WebKit browsers */
+    }
