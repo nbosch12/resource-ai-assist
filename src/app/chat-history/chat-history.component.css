@@ -1,0 +1,93 @@
+:host ::ng-deep .mat-dialog-container {
+  height: 600px;         /* Fixed height for popup */
+  max-height: 600px;
+  min-height: 400px;
+  width: 700px;          /* Optional: set a fixed width */
+  max-width: 90vw;
+  overflow: hidden;      /* Prevent dialog from growing */
+  padding: 0;
+}
+
+.chat-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  height: 100%;
+  max-height: 540px;     /* Adjust for header/footer if needed */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #1976d2 #e3f2fd;
+}
+
+.chat-history-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(30,136,229,0.06);
+}
+.chat-question {
+  color: #1976d2;
+  margin-bottom: 4px;
+}
+.chat-answer {
+  color: #333;
+}
+
+  .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #fff;
+  border: none;
+  font-size: 22px;
+  color: #1976d2;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  transition: background 0.2s;
+  margin-top: -20px;
+  margin-right: -10px;
+}
+.close-btn:hover {
+  background: #e3f2fd;
+}
+
+.chat-answer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+.chat-answer th, .chat-answer td {
+  border: 1px solid #b0bec5;
+  padding: 8px 12px;
+  text-align: left;
+}
+.chat-answer th {
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 700;
+}
+.chat-answer tr:nth-child(even) {
+  background: #f5f7fa;
+}
+
+/* ...existing styles... */
+
+
+/* Custom scrollbar for Webkit browsers */
+.chat-history-list::-webkit-scrollbar {
+  width: 8px;
+  background: #e3f2fd;
+}
+.chat-history-list::-webkit-scrollbar-thumb {
+  background: #1976d2;
+  border-radius: 4px;
+}
+.chat-history-list::-webkit-scrollbar-thumb:hover {
+  background: #1565c0;
+}
+
+/* ...rest of your styles... */

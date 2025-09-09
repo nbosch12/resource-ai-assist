@@ -7,8 +7,20 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'})
 export class ChatBoardService {
  constructor(private http: HttpClient) {}
+ 
  public SendMessage(message: MessageEntry): Observable<MessageEntry> {
   const content= message.content.trim();
+ 
+   if (/^(hii|hi|hello)$/i.test(content)) {
+    return of({
+      id: crypto.randomUUID(),
+      content: 'Hello how may I help you?',
+      role: 'assistant',
+      createdAt: new Date(),
+      isTable: false
+    } as MessageEntry);
+  }
+
     const apiUrl = `https://resource-ai-assist-be.cfapps.eu10-004.hana.ondemand.com/api/ask?q=${encodeURIComponent(message.content)}`;
     const wantsTable = /table|tabular|as a table/i.test(message.content);
     if (wantsTable) {
@@ -61,6 +73,16 @@ public GenerateRandomMessage(): MessageEntry {
   };
 }
 
+saveChat(id: string, subId: string, question: string, answer: string): Observable<any> {
+  const chatData = {
+    id: id,
+    subId: subId,
+    question: question,
+    answer: answer
+  };
+  const apiUrl = 'https://your-api-endpoint.com/api/savechat'; // Replace with your actual endpoint
+  return this.http.post(apiUrl, chatData);
+}
 
 
 }

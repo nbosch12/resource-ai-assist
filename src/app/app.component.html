@@ -34,17 +34,21 @@
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    
-    @if (showFiller) {
-      <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
-  
+    <button class="dropdown-btn" (click)="showHistory = !showHistory">
+      Chat History
+      <i class="fa fa-caret-down" [ngClass]="{'rotated': showHistory}"></i>
+    </button>
+    <div class="dropdown-container" *ngIf="showHistory">
+      <a *ngFor="let chat of chatHistory; let i = index"
+         (click)="openChatHistory(chat)" >
+        {{ chat.contentType }}
+      </a>
+    </div>
   </mat-drawer>
 
   <div class="example-sidenav-content">
     <app-active-chat></app-active-chat>
   </div>
-
 </mat-drawer-container>
 
 <router-outlet />

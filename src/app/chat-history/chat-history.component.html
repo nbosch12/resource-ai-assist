@@ -1,0 +1,9 @@
+<div class="chat-history-list">
+     <button class="close-btn" (click)="close()">
+    &times;
+  </button>
+  <div class="chat-history-item" *ngFor="let item of chat">
+     <div class="chat-question"><strong>Question:</strong> {{ item.question }}</div>
+    <div class="chat-answer"><strong>Answer:</strong> <span [innerHTML]="item.answer"></span></div>
+  </div>
+</div>
