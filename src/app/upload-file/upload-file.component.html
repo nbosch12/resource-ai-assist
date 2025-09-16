@@ -10,9 +10,21 @@
       <input type="file" id="fileInput" class="upload-input" (change)="onFileSelected($event)" style="display:none;" />
        <span *ngIf="selectedFile">{{selectedFile.name}}</span>
     </label>
-   
+    <div class="prefix-select">
+      <label>
+        <input type="radio" name="Resume" value="jobDescription" [(ngModel)]="selectedPrefix" required>
+        job description
+      </label>
+      <label>
+        <input type="radio" name="profile" value="profile" [(ngModel)]="selectedPrefix" required>
+        Profile
+      </label>
+    </div>
+
     <button type="submit" class="upload-btn" [disabled]="!selectedFile">Upload</button>
     <button type="button" class="upload-btn" (click)="fileInput.click()">Browse</button>
     <input #fileInput type="file" style="display:none;" (change)="onFileSelected($event)" />
+
+       <mat-progress-bar *ngIf="uploadInProgress" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
   </form>
 </div>

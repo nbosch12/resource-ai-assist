@@ -1,5 +1,27 @@
-mat-icon.active {
-  color: #1976d2;
-  background: #e3f2fd;
+.assitant-reaction-button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.assitant-reaction-button button[mat-icon-button] {
+  background: #5582b0;
+  color: #fff;
   border-radius: 50%;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+}
+
+.assitant-reaction-button button[mat-icon-button]:hover {
+  background: #5582b0;
+  color: #fff;
+}
+
+.assitant-reaction-button mat-icon {
+  color: #fff;
+  font-size: 22px;
+}
+
+.assitant-reaction-button mat-icon.active {
+  color: #ffeb3b;
 }

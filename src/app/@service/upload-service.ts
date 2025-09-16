@@ -13,11 +13,14 @@ export class UploadService {
    * @param apiUrl The endpoint to upload to.
    * @returns Observable<any>
    */
-  uploadFile(file: File, apiUrl: string): Observable<any> {
-    const formData = new FormData();
-    formData.append('file', file, file.name);
-    return this.http.post(apiUrl, formData);
-  }
+  uploadFile(file: File, url: string) {
+  const formData = new FormData();
+  formData.append('file', file);
+  return this.http.post(url, formData, {
+    reportProgress: true,
+    observe: 'events'
+  });
+}
 
      Toast = Swal.mixin({
         showClass: {

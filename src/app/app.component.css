@@ -13,6 +13,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  margin-left: 400px;
 }
 
 .example-sidenav {
@@ -59,6 +60,8 @@
   padding: 0 8px 8px 8px;
   margin-bottom: 12px;
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  font-size: 16px;
+  line-height: 1.0;
 }
 
 /* Style for each chat link */
@@ -77,3 +80,4 @@
   background-color: #e3f2fd;
   color: #0d47a1;
 }
+

@@ -21,6 +21,11 @@
   </button>
 
   <span class="example-spacer"></span>
+
+   <button matIconButton class="example-icon logo-icon" aria-label="Example icon-button with logo icon">
+     <img src="logo.png" alt="Chatbot Logo"  style="width: 120px;" />
+  </button>
+
   <button matIconButton class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
   </button>
@@ -33,6 +38,10 @@
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" autosize>
+  <div style="position: absolute; left: 24px; top: 80px; z-index: 2;margin-left: 150px;
+    margin-top: 150px;">
+    <img src="chat-bot.png" alt="Chatbot Logo" style="width: 450px;"  />
+  </div>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <button class="dropdown-btn" (click)="showHistory = !showHistory">
       Chat History

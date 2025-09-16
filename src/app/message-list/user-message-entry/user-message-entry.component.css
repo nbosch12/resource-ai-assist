@@ -1,21 +1,33 @@
 :host{
     display: block;
 }
-.user-message-entry-container{
-    display: flex;
-    justify-content: flex-end;
-   
+.user-message-entry-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 18px 0 8px 0;
+  padding: 0 12px;
 }
-.user-message-entry-content{
-    width:70%;
-    height: 45px;
-    padding: 10px;
-    border-radius: 10Px;
-    background-color: #a8ada5;
-    color:white;
-    text-align: right;
-    display: inline;
-    white-space: pre-wrap;
+
+.user-message-entry-content {
+  background: linear-gradient(135deg, #9d9de2 0%, #e3f2fd 100%);
+  color: #222;
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 2px 12px rgba(120, 144, 156, 0.08);
+  padding: 18px 22px 16px 22px;
+  max-width: 50vw;    /* Reduced width */
+  min-width: 180px;
+  font-size: 16px;
+  line-height: 1.7;
+  word-break: break-word;
+  border-right: 4px solid #1976d2;
+  transition: box-shadow 0.2s;
+  text-align: right;  /* Ensures text inside is right-aligned */
+}
+
+.user-message-entry-content:hover {
+  box-shadow: 0 4px 24px rgba(120, 144, 156, 0.16);
 }
 .user-message-entry-content p{
     white-space: normal;
