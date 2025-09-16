@@ -1,16 +1,17 @@
+<div class="header-container">
+</div>
 <style>
   mat-toolbar {
-    background-color: #5582b0; /* Example: Material Blue 700 */
+    background-color: #e7eaed; /* Example: Material Blue 700 */
     color: white;
   }
 </style>
 <mat-toolbar>
   <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
-    <mat-icon>menu</mat-icon>
+    <mat-icon>chatHistory</mat-icon>
   </button> 
-  <span style="margin-left: 10px;">Resource AI Assist Dashboard</span>
-
-  <button matIconButton class="example-icon" aria-label="Display skills overview" style="margin-left: 30px;" (click)="navigateToSkillsGraph()">
+  
+  <button matIconButton class="example-icon" aria-label="Display skills overview" style="margin-left: 10px;" (click)="navigateToSkillsGraph()">
     <mat-icon>assessment</mat-icon>
   </button>
   <button matIconButton class="example-icon" aria-label="Display career graph" style="margin-left: 10px;" (click)="navigateToCareerGraph()">
@@ -19,6 +20,9 @@
  <button matIconButton class="example-icon" aria-label="Upload file" style="margin-left: 10px;" (click)="uploadFile()">
     <mat-icon>upload_file</mat-icon>
   </button>
+
+  <span style="margin-left: 600px;
+    color: black;">Resource AI Assist Dashboard</span>
 
   <span class="example-spacer"></span>
 
@@ -38,10 +42,10 @@
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" autosize>
-  <div style="position: absolute; left: 24px; top: 80px; z-index: 2;margin-left: 150px;
+  <!-- <div style="position: absolute; left: 24px; top: 80px; z-index: 2;margin-left: 150px;
     margin-top: 150px;">
     <img src="chat-bot.png" alt="Chatbot Logo" style="width: 450px;"  />
-  </div>
+  </div> -->
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <button class="dropdown-btn" (click)="showHistory = !showHistory">
       Chat History

@@ -2,7 +2,7 @@
       max-width: 540px;
       margin: 0 auto;
       padding: 24px 12px 12px 12px;
-      background: linear-gradient(135deg, #f8fafc 0%, #5582b0 100%);
+      background: white;
       border-radius: 18px;
       box-shadow: 0 6px 32px 0 rgba(30, 136, 229, 0.10);
       text-align: center;
@@ -10,7 +10,7 @@
        position: relative
     }
     h2 {
-      color: #1976d2;
+      color: black;
       margin-bottom: 18px;
       font-weight: 700;
       letter-spacing: 1px;

@@ -13,7 +13,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  margin-left: 400px;
+  margin-left: 100px;
 }
 
 .example-sidenav {
@@ -21,7 +21,7 @@
   min-width: 220px;
   border-right: 1px solid #e3e3e3;
   padding-top: 16px;
-  background-color: #1f1e1e;
+  background-color: #e3e3e3;
 }
 
 /* Style for the dropdown button */
@@ -69,7 +69,7 @@
   padding: 10px 8px;
   text-decoration: none;
   font-size: 15px;
-  color: #1976d2;
+  color: black;
   display: block;
   border-radius: 4px;
   transition: background 0.2s, color 0.2s;
@@ -77,7 +77,13 @@
 }
 
 .dropdown-container a:hover {
-  background-color: #e3f2fd;
-  color: #0d47a1;
+  background-color: #b0b4b9;
+ 
 }
 
+.header-container {
+    background: url('../assets/Bosch-Supergraphic_RGB.svg');
+    background-size: cover;
+    padding: 8px 16px;
+    align-items: center;
+  }

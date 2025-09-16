@@ -11,17 +11,17 @@
 }
 
 .user-message-entry-content {
-  background: linear-gradient(135deg, #9d9de2 0%, #e3f2fd 100%);
+  background: white;
   color: #222;
   border-radius: 16px 16px 4px 16px;
   box-shadow: 0 2px 12px rgba(120, 144, 156, 0.08);
   padding: 18px 22px 16px 22px;
-  max-width: 50vw;    /* Reduced width */
-  min-width: 180px;
+  max-width: 70vw;    /* Reduced width */
+  min-width: 200px;
   font-size: 16px;
   line-height: 1.7;
   word-break: break-word;
-  border-right: 4px solid #1976d2;
+  border-right: 4px solid #5582b0;
   transition: box-shadow 0.2s;
   text-align: right;  /* Ensures text inside is right-aligned */
 }
