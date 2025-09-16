@@ -87,3 +87,32 @@
     padding: 8px 16px;
     align-items: center;
   }
+
+  /* Make the menu icon button more visually distinct and modern */
+.example-icon {
+  background: white;
+  color: black !important;
+  border-radius: 12px;         /* More square with rounded corners */
+  box-shadow: 0 2px 8px rgba(24, 90, 157, 0.15);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  border: 2px solid #fff;
+  margin-right: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-icon:hover {
+  background: gray;
+  box-shadow: 0 4px 16px rgba(24, 90, 157, 0.25);
+  transform: scale(1.08);
+}
+
+.example-icon mat-icon {
+  color: black !important;
+  font-size: 28px;
+  vertical-align: middle;
+}
+
